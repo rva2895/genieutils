@@ -150,7 +150,7 @@ public:
   int8_t Disabled = 0;
   std::pair<int16_t, int16_t> PlacementSideTerrain = {-1, -1};
   std::pair<int16_t, int16_t> PlacementTerrain = {-1, -1};
-  std::pair<float, float> ClearanceSize = {0, 0};
+  std::pair<float, float> ClearanceSize = { 0.0f, 0.0f };
   int8_t HillMode = 0;
   int8_t FogVisibility = 0;
 

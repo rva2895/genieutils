@@ -41,7 +41,7 @@ public:
   }
 
   int16_t UnitID = -1;
-  std::pair <float, float> Misplacement = {0, 0};
+  std::pair <float, float> Misplacement = {0.0f, 0.0f};
 
 private:
   virtual void serializeObject(void)

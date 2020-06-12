@@ -1,0 +1,285 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A3B49753-1836-40CA-92DA-F1A6926ED7AE}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v140</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\genieutils-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1\stage\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master\pcrio\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libiconv.lib;pcrio-msvc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>pcrio-msvc.lib;libiconv.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\AGE-master\Debug;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <WarningLevel>TurnOffAllWarnings</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\genieutils-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <TargetMachine>MachineX86</TargetMachine>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1\stage\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master\pcrio\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libiconv.lib;pcrio-msvc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>pcrio-msvc.lib;libiconv.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\AGE-master\Release;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <TargetMachine>MachineX86</TargetMachine>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <AdditionalIncludeDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\genieutils-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1\stage\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master\pcrio\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libiconv.lib;pcrio-msvc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>pcrio-msvc.lib;libiconv.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\AGE-master\x64\Debug;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <ObjectFileName>$(IntDir)/%(RelativeDir)/</ObjectFileName>
+      <AdditionalIncludeDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\genieutils-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\include;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <WholeProgramOptimization>true</WholeProgramOptimization>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\boost_1_65_1\stage\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\pcrio-master\pcrio\Release</AdditionalLibraryDirectories>
+      <AdditionalDependencies>libiconv.lib;pcrio-msvc.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <Lib>
+      <AdditionalDependencies>pcrio-msvc.lib;libiconv.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>C:\Users\Vasya\Documents\Visual Studio 2015\Projects\AGE-master\x64\Release;C:\Users\Vasya\Documents\Visual Studio 2015\Projects\iconv-for-windows-master\lib64;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SubSystem>Windows</SubSystem>
+      <LinkTimeCodeGeneration>true</LinkTimeCodeGeneration>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="src\dat\Civ.cpp" />
+    <ClCompile Include="src\dat\DatFile.cpp" />
+    <ClCompile Include="src\dat\Graphic.cpp" />
+    <ClCompile Include="src\dat\GraphicAttackSound.cpp" />
+    <ClCompile Include="src\dat\GraphicDelta.cpp" />
+    <ClCompile Include="src\dat\PlayerColour.cpp" />
+    <ClCompile Include="src\dat\RandomMap.cpp" />
+    <ClCompile Include="src\dat\Research.cpp" />
+    <ClCompile Include="src\dat\Sound.cpp" />
+    <ClCompile Include="src\dat\SoundItem.cpp" />
+    <ClCompile Include="src\dat\Techage.cpp" />
+    <ClCompile Include="src\dat\TechageEffect.cpp" />
+    <ClCompile Include="src\dat\TechTree.cpp" />
+    <ClCompile Include="src\dat\Terrain.cpp" />
+    <ClCompile Include="src\dat\TerrainBlock.cpp" />
+    <ClCompile Include="src\dat\TerrainBorder.cpp" />
+    <ClCompile Include="src\dat\TerrainCommon.cpp" />
+    <ClCompile Include="src\dat\TerrainPassGraphic.cpp" />
+    <ClCompile Include="src\dat\TerrainRestriction.cpp" />
+    <ClCompile Include="src\dat\Unit.cpp" />
+    <ClCompile Include="src\dat\UnitCommand.cpp" />
+    <ClCompile Include="src\dat\UnitHeader.cpp" />
+    <ClCompile Include="src\dat\UnitLine.cpp" />
+    <ClCompile Include="src\dat\unit\AttackOrArmor.cpp" />
+    <ClCompile Include="src\dat\unit\Bird.cpp" />
+    <ClCompile Include="src\dat\unit\Building.cpp" />
+    <ClCompile Include="src\dat\unit\Creatable.cpp" />
+    <ClCompile Include="src\dat\unit\DamageGraphic.cpp" />
+    <ClCompile Include="src\dat\unit\DeadFish.cpp" />
+    <ClCompile Include="src\dat\unit\Projectile.cpp" />
+    <ClCompile Include="src\dat\unit\Type50.cpp" />
+    <ClCompile Include="src\file\Compressor.cpp" />
+    <ClCompile Include="src\file\IFile.cpp" />
+    <ClCompile Include="src\file\ISerializable.cpp" />
+    <ClCompile Include="src\lang\LangFile.cpp" />
+    <ClCompile Include="src\resource\BinaFile.cpp" />
+    <ClCompile Include="src\resource\Color.cpp" />
+    <ClCompile Include="src\resource\DrsFile.cpp" />
+    <ClCompile Include="src\resource\PalFile.cpp" />
+    <ClCompile Include="src\resource\SlpFile.cpp" />
+    <ClCompile Include="src\resource\SlpFrame.cpp" />
+    <ClCompile Include="src\resource\SmpFile.cpp" />
+    <ClCompile Include="src\resource\SmpFrame.cpp" />
+    <ClCompile Include="src\script\ScnFile.cpp" />
+    <ClCompile Include="src\script\scn\MapDescription.cpp" />
+    <ClCompile Include="src\script\scn\ScnPlayerData.cpp" />
+    <ClCompile Include="src\script\scn\ScnResource.cpp" />
+    <ClCompile Include="src\script\scn\Trigger.cpp" />
+    <ClCompile Include="src\tools\bincompare\bincomp.cpp" />
+    <ClCompile Include="src\tools\bincompare\main.cpp" />
+    <ClCompile Include="src\tools\extract\datextract.cpp" />
+    <ClCompile Include="src\tools\test\test.cpp" />
+    <ClCompile Include="src\util\Logger.cpp" />
+    <ClCompile Include="tests\DatTest.cpp" />
+    <ClCompile Include="tests\LangTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\genie\dat\Civ.h" />
+    <ClInclude Include="include\genie\dat\DatFile.h" />
+    <ClInclude Include="include\genie\dat\Graphic.h" />
+    <ClInclude Include="include\genie\dat\GraphicAttackSound.h" />
+    <ClInclude Include="include\genie\dat\GraphicDelta.h" />
+    <ClInclude Include="include\genie\dat\PlayerColour.h" />
+    <ClInclude Include="include\genie\dat\RandomMap.h" />
+    <ClInclude Include="include\genie\dat\Research.h" />
+    <ClInclude Include="include\genie\dat\ResourceUsage.h" />
+    <ClInclude Include="include\genie\dat\Sound.h" />
+    <ClInclude Include="include\genie\dat\SoundItem.h" />
+    <ClInclude Include="include\genie\dat\Techage.h" />
+    <ClInclude Include="include\genie\dat\TechageEffect.h" />
+    <ClInclude Include="include\genie\dat\TechTree.h" />
+    <ClInclude Include="include\genie\dat\Terrain.h" />
+    <ClInclude Include="include\genie\dat\TerrainBlock.h" />
+    <ClInclude Include="include\genie\dat\TerrainBorder.h" />
+    <ClInclude Include="include\genie\dat\TerrainCommon.h" />
+    <ClInclude Include="include\genie\dat\TerrainPassGraphic.h" />
+    <ClInclude Include="include\genie\dat\TerrainRestriction.h" />
+    <ClInclude Include="include\genie\dat\Unit.h" />
+    <ClInclude Include="include\genie\dat\UnitCommand.h" />
+    <ClInclude Include="include\genie\dat\UnitHeader.h" />
+    <ClInclude Include="include\genie\dat\UnitLine.h" />
+    <ClInclude Include="include\genie\dat\unit\AttackOrArmor.h" />
+    <ClInclude Include="include\genie\dat\unit\Bird.h" />
+    <ClInclude Include="include\genie\dat\unit\Building.h" />
+    <ClInclude Include="include\genie\dat\unit\Creatable.h" />
+    <ClInclude Include="include\genie\dat\unit\DamageGraphic.h" />
+    <ClInclude Include="include\genie\dat\unit\DeadFish.h" />
+    <ClInclude Include="include\genie\dat\unit\Projectile.h" />
+    <ClInclude Include="include\genie\dat\unit\Type50.h" />
+    <ClInclude Include="include\genie\file\Compressor.h" />
+    <ClInclude Include="include\genie\file\IFile.h" />
+    <ClInclude Include="include\genie\file\ISerializable.h" />
+    <ClInclude Include="include\genie\lang\LangFile.h" />
+    <ClInclude Include="include\genie\resource\BinaFile.h" />
+    <ClInclude Include="include\genie\resource\Color.h" />
+    <ClInclude Include="include\genie\resource\DrsFile.h" />
+    <ClInclude Include="include\genie\resource\PalFile.h" />
+    <ClInclude Include="include\genie\resource\SlpFile.h" />
+    <ClInclude Include="include\genie\resource\SlpFrame.h" />
+    <ClInclude Include="include\genie\resource\SmpFile.h" />
+    <ClInclude Include="include\genie\resource\SmpFrame.h" />
+    <ClInclude Include="include\genie\script\ScnFile.h" />
+    <ClInclude Include="include\genie\script\scn\MapDescription.h" />
+    <ClInclude Include="include\genie\script\scn\ScnPlayerData.h" />
+    <ClInclude Include="include\genie\script\scn\ScnResource.h" />
+    <ClInclude Include="include\genie\script\scn\Trigger.h" />
+    <ClInclude Include="include\genie\Types.h" />
+    <ClInclude Include="include\genie\util\Logger.h" />
+    <ClInclude Include="src\tools\bincompare\bincomp.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

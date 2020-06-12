@@ -41,7 +41,8 @@ void Terrain::setGameVersion(GameVersion gv)
 {
   ISerializable::setGameVersion(gv);
 
-  Borders.resize(getTerrainCount(gv), 0);
+  if (gv != GV_CC_t && gv != GV_TC_t)
+    Borders.resize(getTerrainCount(gv), 0);
 }
 
 //------------------------------------------------------------------------------
@@ -55,8 +56,10 @@ unsigned short Terrain::getTerrainCount(GameVersion gv)
 {
   if (terrain_count_)
     return terrain_count_;
-  if (gv >= GV_SWGB)
+  if (gv >= GV_SWGB && gv <= GV_CC)
     return 55;
+  if (gv == GV_CC_t)
+    return 252; //new
   if (gv >= GV_T2 && gv <= GV_LatestTap)
     return 96;
   if (gv >= GV_C8 && gv <= GV_LatestDE2)
@@ -67,6 +70,9 @@ unsigned short Terrain::getTerrainCount(GameVersion gv)
     return 100;
   if (gv == GV_TC)
     return 42;
+  if (gv == GV_TC_t)
+    return 252; //new
+
   return 32;
 }
 
@@ -167,7 +173,18 @@ void Terrain::serializeObject(void)
   else
   {
     if (isOperation(OP_READ))
-      serialize<int16_t>(Borders, getTerrainCount(gv));
+      switch (gv)
+      {
+      case GV_CC_t:
+        serialize<int16_t>(Borders, 55);
+        break;
+      case GV_TC_t:
+        serialize<int16_t>(Borders, 42);
+        break;
+      default:
+        serialize<int16_t>(Borders, getTerrainCount(gv));
+        break;
+      }
     else
       serialize<int16_t>(Borders, Borders.size());
   }

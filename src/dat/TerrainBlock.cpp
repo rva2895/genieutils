@@ -84,6 +84,13 @@ unsigned short TerrainBlock::getSomethingSize(void)
 /// AoK             37208
 /// TC              42208
 /// SWGB & CC       49640
+
+///                 swgb    tc
+///borders size     0x5A00  0x5A00
+///border padding   0x6C    0x170
+///border terrains  49      52
+///max terrain      104     94
+
 void TerrainBlock::serializeObject(void)
 {
   GameVersion gv = getGameVersion();
@@ -94,6 +101,30 @@ void TerrainBlock::serializeObject(void)
   serialize<int32_t>(MapHeight);
   serialize<int32_t>(WorldWidth);
   serialize<int32_t>(WorldHeight);
+
+  /*int32_t terrain_count = 94; //SWGB - 104, TC - 94
+  int32_t terrain_size = 0x1D4;
+  int32_t padding = 0x6C;
+  int32_t struct_size = 0x2D0;
+  switch (gv)
+  {
+  case GV_CC:
+    terrain_count = 252;
+    terrain_size = 0x1D4;
+    padding = 0x6C;
+    struct_size = 0x2D0;
+    break;
+  case GV_TC:
+    terrain_count = 252;
+    terrain_size = 0x1B4;
+    padding = 0x170;
+    struct_size = 0x2D0;
+    break;
+  default:
+    break;
+  }
+
+  genie::Terrain::setTerrainCount(terrain_count);*/
 
   serializeSub<TileSize>(TileSizes, SharedTerrain::TILE_TYPE_COUNT);
   if (gv >= GV_AoE)
@@ -113,10 +144,31 @@ void TerrainBlock::serializeObject(void)
   if (gv < GV_C9 || gv > GV_LatestDE2)
   {
   // TerrainBorders seem to be unused (are empty) in GV > AoK Alpha
-    serializeSub<TerrainBorder>(TerrainBorders, 16);
+    //ignore borders
+    if (gv != GV_CC_t && gv != GV_TC_t)
+      serializeSub<TerrainBorder>(TerrainBorders, 16); //TODO: fixed size?
 
-  // Probably filled after loading map in game.
-  serialize<int32_t>(MapRowOffset);
+    //following code was used in conversion only, not needed for reading/writing
+    //start offset: (72+12*19*6) * 16; starting from 1st extra terrain
+
+    //108 padding bytes (SWGB), or 368 (TC)
+    /*if (isOperation(OP_READ))
+      for (int i = 0; i < 92; i++)
+      {
+        int32_t dummy = 0;
+        serialize<int32_t>(dummy);
+      }
+    else //fill blank terrains (0x43A4 - SWGB), (0x4346 - TC)
+    {
+      int32_t dummy = 0;
+      for (int i = 0; i < 0x4346; i++)
+      {
+        serialize<int32_t>(dummy);
+      }
+    }*/
+
+    // Probably filled after loading map in game.
+    serialize<int32_t>(MapRowOffset);
   }
 
   if (gv >= GV_AoKA)
@@ -168,15 +220,15 @@ void TerrainBlock::serializeObject(void)
   serialize<int8_t>(MapVisibleFlag);
   serialize<int8_t>(FogFlag); // Always 1
 
-//From here on data is filled in game anyway.
+  //From here on data is filled in game anyway.
   if (gv < GV_C9 || gv > GV_LatestDE2)
   {
-//There are two 32-bit pointers random map and game world, rest should be all 0.
-  serialize<int8_t>(SomeBytes, getBytesSize());
+    //There are two 32-bit pointers random map and game world, rest should be all 0.
+    serialize<int8_t>(SomeBytes, getBytesSize());
 
-  // Few pointers and small numbers.
-  serialize<int32_t>(SomeInt32, getSomethingSize());
-}
+    // Few pointers and small numbers.
+    serialize<int32_t>(SomeInt32, getSomethingSize());
+  }
 }
 
 //------------------------------------------------------------------------------

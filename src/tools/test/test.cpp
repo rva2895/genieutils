@@ -1,4 +1,4 @@
-#define BOOST_TEST_MODULE geniedat_torture_chamber
+/*#define BOOST_TEST_MODULE geniedat_torture_chamber
 
 #include <iostream>
 
@@ -69,7 +69,7 @@ BOOST_AUTO_TEST_CASE( simple_change_values_test )
   
   BOOST_CHECK( b.DeadFish.TrackingUnit == 5 );
   BOOST_CHECK( b.Creatable.TrainTime == 999 );
-  BOOST_CHECK( b.Creatable.ButtonID == 100 ); */
+  BOOST_CHECK( b.Creatable.ButtonID == 100 );
 }
 
 int readWriteDiff(genie::GameVersion gv)
@@ -97,3 +97,4 @@ BOOST_AUTO_TEST_CASE( simple_read_write_test )
   BOOST_CHECK_EQUAL(readWriteDiff(genie::GV_SWGB), 0);
   BOOST_CHECK_EQUAL(readWriteDiff(genie::GV_CC), 0);
 }
+*/

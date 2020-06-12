@@ -60,7 +60,7 @@ void ScnFile::extractRaw(const char *from, const char *to)
   ifs.read(reinterpret_cast<char *>(&headerLen), 4);
   ofs.write(reinterpret_cast<char *>(&headerLen), 4);
 
-  char header[headerLen];
+  char* header = (char*)malloc(headerLen);
 
   ifs.read(header, headerLen);
   ofs.write(header, headerLen);
@@ -76,6 +76,7 @@ void ScnFile::extractRaw(const char *from, const char *to)
   ifs.close();
   ofs.close();
 
+  free(header);
 }
 
 //------------------------------------------------------------------------------
